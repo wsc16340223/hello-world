@@ -7,11 +7,56 @@ public  class Calculator implements ActionListener {
 	private JTextField num1;
 	private JTextField num2;
 	private JLabel symbol;
-	private JLabel equal;
+	
 	private JLabel result;
-	private int a, b;
+	
 	
 	public Calculator() {
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		int a, b;
+		a = Integer.parseInt(num1.getText());
+		b = Integer.parseInt(num2.getText());
+		if (e.getActionCommand().equals("+")) {
+			symbol.setText("+");
+		}
+		else if (e.getActionCommand().equals("-")) {
+			symbol.setText("-");
+		}
+		else if (e.getActionCommand().equals("*")) {
+			symbol.setText("*");
+		}
+		else if (e.getActionCommand().equals("/")) {
+			symbol.setText("/");
+		}
+		
+		if (e.getActionCommand().equals("OK")) {
+			if (symbol.getText().equals("+")){
+				String s = String.valueOf(a+b);
+				result.setText(s);
+			}
+			else if (symbol.getText().equals("-")) {
+				String s = String.valueOf(a-b);
+				result.setText(s);
+			}
+			else if (symbol.getText().equals("*")) {
+				String s = String.valueOf(a*b);
+				result.setText(s);
+			}
+			else if (symbol.getText().equals("/")) {
+				if (b == 0) {
+					result.setText("NaN");
+				}
+				String s = String.valueOf(a/b);
+				result.setText(s);
+			}
+		}
+	}
+	public static void main(String args[]) {
 		JFrame frame = new JFrame("Easy Calculater");
 		JPanel pan = new JPanel();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -20,7 +65,8 @@ public  class Calculator implements ActionListener {
 		pan.setLayout(layout);
 		cp.add(pan);
 		frame.pack();
-		
+
+		JLabel equal;
 		JButton plus = new JButton("+");
 		JButton minus = new JButton("-");
 		JButton multi = new JButton("*");
@@ -56,49 +102,5 @@ public  class Calculator implements ActionListener {
 		ok.addActionListener(this);
 		
 		frame.setVisible(true);
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		a = Integer.parseInt(num1.getText());
-		b = Integer.parseInt(num2.getText());
-		if (e.getActionCommand() == "+") {
-			symbol.setText("+");
-		}
-		else if (e.getActionCommand() == "-") {
-			symbol.setText("-");
-		}
-		else if (e.getActionCommand() == "*") {
-			symbol.setText("*");
-		}
-		else if (e.getActionCommand() == "/") {
-			symbol.setText("/");
-		}
-		
-		if (e.getActionCommand() == "OK") {
-			if (symbol.getText() == "+"){
-				String s = String.valueOf(a+b);
-				result.setText(s);
-			}
-			else if (symbol.getText() == "-") {
-				String s = String.valueOf(a-b);
-				result.setText(s);
-			}
-			else if (symbol.getText() == "*") {
-				String s = String.valueOf(a*b);
-				result.setText(s);
-			}
-			else if (symbol.getText() == "/") {
-				if (b == 0) {
-					result.setText("NaN");
-				}
-				String s = String.valueOf(a/b);
-				result.setText(s);
-			}
-		}
-	}
-	public static void main(String args[]) {
-		Calculator cal = new Calculator();
 	}
 }
