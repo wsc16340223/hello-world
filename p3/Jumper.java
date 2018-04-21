@@ -16,7 +16,7 @@
  * @author Barbara Cloud Wells
  */
 
-
+// sonar-runner 时需要将package那行注释掉，否则报错
 package info.gridworld.actor;
 import info.gridworld.actor.Bug;
 import info.gridworld.grid.Grid;
