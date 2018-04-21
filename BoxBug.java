@@ -55,3 +55,6 @@ public class BoxBug extends Bug
         }
     }
 }
+
+
+// ~/Desktop/grid/grid world/Gridworld/GridWorldCode/projects/boxBug
