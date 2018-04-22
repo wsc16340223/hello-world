@@ -27,7 +27,7 @@ import java.util.ArrayList;
  * it moves through the grid. <br />
  * The implementation of this class is testable on the AP CS A and AB exams.
  */
-public class ChameleonKid extends Critter
+public class ChameleonKid extends ChameleonCritter
 {
     /**
      * Randomly selects a neighbor and changes this critter's color to be the
